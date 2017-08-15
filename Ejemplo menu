@@ -1,0 +1,88 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+float pot(float x, int y);
+int fac(int n);
+float serie(float x, int N);
+
+void main()
+{   float b,result;
+	int equis,opcion,N,x;
+	do
+	{
+	cout<<"Menu";
+	cout<<"1.-Potencia";
+	cout<<"2.-Factorial";
+	cout<<"3.-Serie";
+	cout<<"0.-Salir";
+	cout<<"Opcion: ";
+	cin>>opcion;
+	switch(opcion)
+	{   
+	    case 1: {
+			    cout<<"Ingrese Base Y Exponente"<<endl;
+				cin>> b;
+				cin>> x;
+				result= pot(b,x);      // llamar a pot
+				cout<< b <<" Elevado A " <<x <<" Es " <<result;
+				break;
+			    }
+		case 2: {
+			    cout<<"Ingrese Factorial"<<endl;
+				cin>> x;
+				result= fac(x);        // llamar a fac
+				cout<< x <<" Factorial Es " <<result;
+				break;
+			    }
+		case 3: {	
+			    cout<<"Ingrese Base Y Exponente"<<endl;
+				cin>> b;
+				cin>> x;
+				result= serie(b,x);    // llamar a serie
+				cout<<" El Resultado De La Serie Es " <<result;
+				break;
+			    }
+		case 4: 
+			    cout<<"Gracias Por Utilizar El Programa";
+			    break;
+		default:
+			    cout<<"Opcion Invalida";
+	}
+	getch();
+	system ("cls");  // Limpia la pantalla
+} while(opcion!=0);  // Mientras la opcion sea diferente a 0
+  
+  return 0;
+} 
+
+float pot(float x, int y)
+{	float result=1,cont=0;
+	do
+	{		
+		result=result*x;
+		cont=cont+1;
+		
+	}while(cont<y);
+	return (result);
+}
+int fac(int n)
+{	int result=1,cont=2;
+	do
+	{		
+		result=result*cont;
+		cont=cont+1;
+		
+	}while(cont<n);
+	return (result);
+}
+float serie(float x, int N)
+{	float result=0,cont=1;
+	do
+	{	result=result+(pot(x,N)/fac(N));
+		cont=cont+1;
+	}while(cont<N);
+	return (result);
+}
