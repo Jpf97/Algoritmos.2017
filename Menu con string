@@ -1,0 +1,77 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#include "stdlib.h"   // system
+#define MAX 100
+
+float area (float a, float b);
+void vector ();
+string invertir (string var1);
+
+using namespace std;
+
+void main()
+{
+    float base, altura, Area;
+	float Vec[MAX];
+	int N, opcion;
+	string cadena;
+//menu
+  do { cout<<"\t MENU";
+       cout<<"1. CALCULO AREA";
+       cout<<"2.VECTOR";
+       cout<<"3.INVERTIR CADENA";
+       cout<<"0.SALIR";
+       cout<<"INGRESE OPCION: ";
+       cin>>opcion;
+       switch(opcion)
+      {
+     case 1:{ cout<<"Ingrese base: ";
+		      cin>>base;
+		      cout<<"Ingrese altura: ";
+		      cin>>altura;
+              cout<<"el area del paralelogramo es : ";
+		      cout<<area(base, altura);
+              break;
+			}
+	 case 2:{ cout<<"Aqui va lo que sea";
+              break;
+			}
+	 case 3:{ cout<<"Ingrese cadena: ";
+		      getline(cin, cadena);
+		      cout<<"La cadena invertida es: " <<invertir (cadena)<<endl;
+	          break;
+		    }
+      case 0:
+	      cout<<"SALIR DEL MENU";
+	      break;
+     default: 
+	      cout<<"OPCION INVALIDA, INGRESE OTRA OPCION";
+      }
+  system("cls");
+    }while(opcion!=0);
+ getch();
+}
+
+float area (float a, float b)
+{
+	float x;
+	  x= a*b;
+    return x;
+}
+
+string invertir (string var1)
+{   
+	int lng;
+	char aux;
+	string var2=var1;
+	lng = var1.length();
+	for (int i=0; i< lng/2; i++)
+     {  
+		aux= var1.at(i);
+		var1[i]= var1[lng-1-i];
+		var1[lng-1-i]= aux;
+	 }
+	 return var1;
+}
